@@ -37,7 +37,7 @@ const Navbar = () => {
             <div className="flex items-center justify-between w-full">
               <div className="flex-shrink-0 text-black text-xl font-bold ml-auto sm:ml-0">
                 {/* Logo or Text */}
-                My Logo
+                <img src="/assets/dsg-hori-300x100-trans.png" alt="Dirty Santa Gift Logo" className="h-8 w-auto"/>
               </div>
 
               {/* Desktop Navbar Links */}

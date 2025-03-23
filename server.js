@@ -19,7 +19,7 @@ admin.initializeApp({
 
 const bucket = admin.storage().bucket();
 
-app.get('/get-image', async (req, res) => {
+app.get('/api/get-image', async (req, res) => {
   const today = new Date();
   const dateString = today.toISOString().split('T')[0]; // formats to yyyy-mm-dd
   const filePath = `${dateString}/santa.jpeg`;

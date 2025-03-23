@@ -4,7 +4,7 @@ const ImageComponent = () => {
   const [imageUrl, setImageUrl] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:5002/get-image').then(response => {
+        fetch(`/api/get-image`).then(response => {
                 console.log(response);  // Log the entire response object
                 return response.json(); // Parse it as JSON
             }).then(data => {
