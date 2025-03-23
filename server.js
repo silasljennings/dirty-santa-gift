@@ -3,17 +3,25 @@ const express = require('express');
 const admin = require('firebase-admin');
 const cors = require('cors');
 const path = require('path');
+const dotenv = require('dotenv');
+dotenv.config(); // Load environment variables from the .env file
 
 const app = express();
 
 // Enable CORS for all routes
 app.use(cors());
 
-// Initialize Firebase Admin with your project configuration
-const serviceAccount = require('./service-account-key.json');
+const getServiceAccount = () => {
+  const serviceAccountKeyString = process.env.SERVICE_ACCOUNT_KEY;
+  if (!serviceAccountKeyString) { throw new Error(`Service account key not set.`); }
+  const serviceAccountKey = JSON.parse(serviceAccountKeyString);
+  if (!serviceAccountKey) { throw new Error(`Service account key for environment not set.`); }
+  console.log(serviceAccountKey);
+  return serviceAccountKey;
+};
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert(getServiceAccount()),
   storageBucket: 'gs://prod-dirtysantagift.firebasestorage.app'
 });
 

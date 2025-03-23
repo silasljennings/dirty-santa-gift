@@ -38,3 +38,8 @@ ehthumbs.db
 *.swp
 *.swo
 
+/functions/lib
+/function/node_modules/
+
+/client/build/
+/client/node_modules/
