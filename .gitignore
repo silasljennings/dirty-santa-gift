@@ -1,0 +1,40 @@
+# Node modules
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build output
+/build/
+/dist/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Log files
+*.log
+
+# IDE or editor specific files
+.vscode/
+.idea/
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+
+# React specific files
+/.cache
+/.parcel-cache
+
+# Test coverage directory
+/coverage/
+
+# Temporary files
+*.swp
+*.swo
+

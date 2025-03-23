@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --red-100: oklch(0.60 0.40 10);  /* Light red (Santa's suit highlight) */
+  --red-200: oklch(0.58 0.45 15);  /* Traditional red (Santa's suit) */
+  --red-300: oklch(0.56 0.50 20);  /* Moderate red (Christmas ornament) */
+  --red-400: oklch(0.54 0.55 25);  /* Warm Christmas red */
+  --red-500: oklch(0.52 0.60 30);  /* Deep red (Santa's suit) */
+  --red-600: oklch(0.50 0.65 35);  /* Dark red (Santa's boots) */
+  --red-700: oklch(0.48 0.70 40);  /* Burgundy red (Christmas decorations) */
+  --red-800: oklch(0.46 0.75 45);  /* Deep wine red (Holiday theme) */
+  --red-900: oklch(0.44 0.80 50);  /* Very deep red (Christmas eve ambiance) */
+
+  /* Green colors */
+  --green-100: oklch(0.72 0.25 125);  /* Light green (Christmas tree) */
+  --green-200: oklch(0.68 0.30 130);  /* Light moss green */
+  --green-300: oklch(0.64 0.35 135);  /* Moderate green */
+  --green-400: oklch(0.58 0.40 140);  /* Classic Christmas green */
+  --green-500: oklch(0.52 0.45 145);  /* Dark Christmas green */
+  --green-600: oklch(0.47 0.50 150);  /* Very dark forest green */
+  --green-700: oklch(0.42 0.55 155);  /* Deep emerald green */
+  --green-800: oklch(0.38 0.60 160);  /* Dark pine green */
+  --green-900: oklch(0.35 0.65 165);  /* Very deep evergreen green */
+
+
+  /* Gold colors */
+  --yellow-100: oklch(0.91 0.28 70);    /* Pale gold */
+  --yellow-200: oklch(0.88 0.32 75);    /* Light gold */
+  --yellow-300: oklch(0.85 0.36 80);    /* Soft gold */
+  --yellow-400: oklch(0.82 0.40 85);    /* Rich, warm gold */
+  --yellow-500: oklch(0.79 0.43 90);    /* Classic gold */
+  --yellow-600: oklch(0.76 0.47 95);    /* Deeper gold */
+  --yellow-700: oklch(0.73 0.51 100);   /* Bold gold */
+  --yellow-800: oklch(0.70 0.54 105);   /* Strong golden hue */
+  --yellow-900: oklch(0.67 0.58 110);   /* Darker, deeper gold */
+
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
