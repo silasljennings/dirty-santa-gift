@@ -1,23 +1,39 @@
-# Use an official Node.js runtime as a parent image
+# Step 1: Build the React frontend
 FROM node:20 as build
 
+# Set working directory for the frontend build
 WORKDIR /home/node/app
 
-COPY package*.json ./
+# Copy the package.json and package-lock.json of the frontend
+COPY client/package*.json ./client/
 
+# Install dependencies for frontend (React app)
+WORKDIR /home/node/app/client
 RUN npm install
-RUN ls -l /home/node/app
-COPY . .
+
+# Build the React app
 RUN npm run build
 
-# Build the container image
+# Step 2: Prepare backend (Express) and copy the necessary files
 FROM node:20-alpine
-WORKDIR /app
-COPY --from=build /home/node/app/dist/ /app/dist
-COPY --from=build /home/node/app/node_modules /app/node_modules
 
-# Expose port 8080
+# Set working directory for the backend
+WORKDIR /app
+
+# Copy the backend package.json and install dependencies
+# Backend code is in the root directory
+COPY package*.json ./
+WORKDIR /app
+RUN npm install
+
+# Copy the backend source code (root folder)
+COPY . /app
+
+# Copy the React build folder from the first image to the backend directory
+COPY --from=build /home/node/app/client/build /app/client/build
+
+# Expose the port your Express server will run on
 EXPOSE 8080
 
-# Start Nginx
-CMD ["node", "/app/dist/server.js"]
+# Start the backend server (assuming you serve the React app with Express)
+CMD ["node", "/app/server.js"]

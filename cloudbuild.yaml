@@ -1,18 +1,4 @@
 steps:
-  # Step 1: Build the React frontend
-  - name: 'node:20'
-    id: 'Build React'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - |
-        cd client
-        npm install
-        npm run build
-
-  # Step 2: Deploy React app to Firebase Hosting
-  - name: 'gcr.io/$PROJECT_ID/firebase'
-    args: [ 'deploy', '--project=prod-dirtysantagift', '--only=hosting' ]
 
   # Build the Docker image for the backend
   - name: 'gcr.io/cloud-builders/docker'
