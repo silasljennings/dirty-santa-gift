@@ -4,8 +4,7 @@ FROM node:20 as build
 # Set working directory for the frontend build
 WORKDIR /home/node/app
 
-# Copy the package.json and package-lock.json of the frontend
-COPY client/package*.json ./client/
+COPY client/ ./client/
 
 # Install dependencies for frontend (React app)
 WORKDIR /home/node/app/client
