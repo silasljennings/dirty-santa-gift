@@ -31,5 +31,5 @@ COPY --from=build /home/node/app/client/build ./client/build
 EXPOSE 8080
 
 # Start the backend server (assuming you serve the React app with Express)
-RUN npm server
-RUN npm client
+CMD ["npm", "run", "server"]
+CMD ["npm", "run", "client"]
