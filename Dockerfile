@@ -21,9 +21,7 @@ FROM node:20-alpine
 WORKDIR /app
 
 # Copy the backend package.json and install dependencies
-# Backend code is in the root directory
 COPY package*.json ./
-WORKDIR /app
 RUN npm install
 
 # Copy the backend source code (root folder)
