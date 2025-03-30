@@ -3,7 +3,6 @@ FROM node:20 as build
 
 # Set working directory for the frontend build
 WORKDIR /home/node/app
-
 COPY client/ ./client/
 
 # Install dependencies for frontend (React app)
@@ -22,14 +21,13 @@ COPY package*.json ./
 RUN npm install
 
 # Copy the backend source code (root folder)
-COPY . ./
+COPY . .
 
 # Copy the React build folder from the first image to the backend directory
-COPY --from=build /home/node/app/client ./client
+COPY --from=build /home/node/app/client/build /app/client/build
 
 # Expose the port your Express server will run on
 EXPOSE 8080
 
 # Start the backend server (assuming you serve the React app with Express)
 CMD ["npm", "run", "server"]
-CMD ["npm", "run", "client"]

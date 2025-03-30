@@ -27,7 +27,7 @@ admin.initializeApp({
 
 const bucket = admin.storage().bucket();
 
-
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 app.get('/api/get-image', async (req, res) => {
   const today = new Date();
@@ -79,8 +79,14 @@ app.get('/api/get-image', async (req, res) => {
   }
 });
 
+// Catch-all route to serve the React app for all other routes (client-side routing)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+});
+
+
 const port = process.env.PORT || 5002;
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Server is running on ${port}`);
 });
 
