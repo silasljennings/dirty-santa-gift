@@ -9,8 +9,6 @@ COPY client/ ./client/
 # Install dependencies for frontend (React app)
 WORKDIR /home/node/app/client
 RUN npm install
-
-# Build the React app
 RUN npm run build
 
 # Step 2: Prepare backend (Express) and copy the necessary files
@@ -20,11 +18,10 @@ FROM node:20-alpine
 WORKDIR /app
 
 # Copy the backend package.json and install dependencies
-COPY package*.json ./
-RUN npm install
 
 # Copy the backend source code (root folder)
 COPY . /app
+RUN npm install
 
 # Copy the React build folder from the first image to the backend directory
 COPY --from=build /home/node/app/client/build /app/client/build
