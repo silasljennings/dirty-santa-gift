@@ -25,10 +25,11 @@ RUN npm install
 COPY . ./
 
 # Copy the React build folder from the first image to the backend directory
-COPY --from=build /home/node/app/client/build ./client/build
+COPY --from=build /home/node/app/client ./client
 
 # Expose the port your Express server will run on
 EXPOSE 8080
 
 # Start the backend server (assuming you serve the React app with Express)
 CMD ["npm", "run", "server"]
+CMD ["npm", "run", "client"]
