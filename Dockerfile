@@ -32,4 +32,3 @@ EXPOSE 8080
 
 # Start the backend server (assuming you serve the React app with Express)
 CMD ["npm", "run", "server"]
-CMD ["npm", "run", "client"]
