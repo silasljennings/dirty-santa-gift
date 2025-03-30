@@ -18,16 +18,18 @@ FROM node:20-alpine
 WORKDIR /app
 
 # Copy the backend package.json and install dependencies
-
-# Copy the backend source code (root folder)
-COPY . /app
+COPY package*.json ./
 RUN npm install
 
+# Copy the backend source code (root folder)
+COPY . ./
+
 # Copy the React build folder from the first image to the backend directory
-COPY --from=build /home/node/app/client/build /app/client/build
+COPY --from=build /home/node/app/client/build ./client/build
 
 # Expose the port your Express server will run on
 EXPOSE 8080
 
 # Start the backend server (assuming you serve the React app with Express)
-CMD ["node", "/app/server.js"]
+RUN npm server
+RUN npm client
