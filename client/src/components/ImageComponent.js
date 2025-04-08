@@ -18,7 +18,7 @@ const ImageComponent = () => {
     return (
         <div className="flex justify-center items-center h-screen w-screen bg-gray-100">
         {imageUrl ? (
-                <img src={imageUrl} alt="Santa" className="w-full h-full object-cover" />
+                <img src={imageUrl} alt="Santa" className="w-full h-full object-cover object-center" />
             ) : (
                 <p>Loading...</p>
             )}

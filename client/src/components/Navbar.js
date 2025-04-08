@@ -5,11 +5,11 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-      <nav className="bg-white">
+      <nav className="fixed top-0 z-100 bg-white w-full">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           <div className="relative flex items-center justify-between h-16">
             {/* Mobile Menu Icon (Hamburger) */}
-            <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <div className="absolute inset-y-0 left-3 flex items-center sm:hidden">
               <button
                   className="text-black focus:outline-none"
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} // Toggle mobile menu
